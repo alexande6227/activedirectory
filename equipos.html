@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/equipos.json"></script>
+    <title>Equipos en Active Directory</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: rgb(65, 148, 196);
+            padding: 15px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: left;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .download-button, .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .download-button {
+            background: #4CAF50;
+            color: white;
+        }
+        .back-button {
+            background: #ffcc00;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Equipos en Active Directory</h1>
+    <button class="download-button" onclick="downloadCSV()">Descargar CSV</button>
+    <button class="back-button" onclick="window.location.href='index.html'">Volver</button>
+    <div class="container" id="equipos"></div>
+
+</body>
+</html>

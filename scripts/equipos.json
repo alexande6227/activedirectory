@@ -1,0 +1,29 @@
+fetch('ad_computers.json')
+.then(response => response.json())
+.then(data => {
+    let container = document.getElementById("equipos");
+    window.equiposData = data; // Guardar datos para descarga
+    data.forEach(computer => {
+        let card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `<h3>${computer.Nombre}</h3>
+                         <p><strong>SO:</strong> ${computer.SistemaOperativo}</p>
+                         <p><strong>IP:</strong> ${computer.IP || 'No disponible'}</p>
+                         <p><strong>Último Inicio de Sesión:</strong> ${computer.UltimoInicioSesion || 'No disponible'}</p>`;
+        container.appendChild(card);
+    });
+})
+.catch(error => console.error("Error al cargar los equipos:", error));
+
+function downloadCSV() {
+let csvContent = "Nombre,SistemaOperativo,IP,UltimoInicioSesion\n";
+window.equiposData.forEach(computer => {
+    csvContent += `${computer.Nombre},${computer.SistemaOperativo},${computer.IP || 'No disponible'},${computer.UltimoInicioSesion || 'No disponible'}\n`;
+});
+
+let blob = new Blob([csvContent], { type: 'text/csv' });
+let link = document.createElement("a");
+link.href = URL.createObjectURL(blob);
+link.download = "equipos_ad.csv";
+link.click();
+}

@@ -1,0 +1,56 @@
+﻿[
+    {
+        "DisplayName":  "fondo",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1733933866000)\/",
+        "ModificationTime":  "\/Date(1737057476000)\/"
+    },
+    {
+        "DisplayName":  "fondo1",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1738185243000)\/",
+        "ModificationTime":  "\/Date(1738185290000)\/"
+    },
+    {
+        "DisplayName":  "Default Domain Policy",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1707229373000)\/",
+        "ModificationTime":  "\/Date(1709827700000)\/"
+    },
+    {
+        "DisplayName":  "pp",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1722447453000)\/",
+        "ModificationTime":  "\/Date(1736975692000)\/"
+    },
+    {
+        "DisplayName":  "Politica CMD",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1720802402000)\/",
+        "ModificationTime":  "\/Date(1722272536000)\/"
+    },
+    {
+        "DisplayName":  "Default Domain Controllers Policy",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1707229373000)\/",
+        "ModificationTime":  "\/Date(1739449728000)\/"
+    },
+    {
+        "DisplayName":  "Politica panel de control",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1721224068000)\/",
+        "ModificationTime":  "\/Date(1721224106000)\/"
+    },
+    {
+        "DisplayName":  "Politica panel de control general",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1720804901000)\/",
+        "ModificationTime":  "\/Date(1734363946000)\/"
+    },
+    {
+        "DisplayName":  "Fabrica",
+        "GpoStatus":  3,
+        "CreationTime":  "\/Date(1723818849000)\/",
+        "ModificationTime":  "\/Date(1723821512000)\/"
+    }
+]
