@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación Interactiva - Directorio Activo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+    <link rel="stylesheet" href="/style/style-main.css">
+    <script src="/scripts/index.json"></script>
+
+</head>
+<body>
+
+<h2>Directorio Activo - Animación Interactiva</h2>
+<div class="container">
+
+
+    <!-- Servidor -->
+    <div class="node server" data-url="/formulario_zoho/form.html" id="server" style="top: 170px; left: 275px;">DC</div>
+
+    <!-- Usuarios -->
+    <div class="node user" data-url="user.html" id="user1" style="top: 50px; left: 50px;">Usuarios</div>
+    <div class="node user" data-url="gpo.html" id="user2" style="top: 300px; left: 100px;">GPOS</div>
+    <div class="node user" data-url="equipos.html" id="user3" style="top: 50px; left: 500px;">Equipos</div>
+    <div class="node user" data-url="login.html" id="user4" style="top: 300px; left: 450px;">Login</div>
+</div>
+
+<SCript>
+    gsap.registerPlugin(MotionPathPlugin);
+
+// Animación de entrada con rebote
+gsap.from(".node", {
+    scale: 0,
+    opacity: 0,
+    duration: 1.5,
+    ease: "elastic.out(1, 0.5)",
+    stagger: 0.3
+});
+
+// Movimiento en bucles diferentes
+gsap.to("#user1", { duration: 4, motionPath: { path: [{x: 0, y: 0}, {x: -20, y: 30}, {x: 20, y: -20}], curviness: 1.5 }, repeat: -1, yoyo: true, ease: "power1.inOut" });
+gsap.to("#user2", { duration: 3.5, motionPath: { path: [{x: 0, y: 0}, {x: 30, y: -10}, {x: -10, y: 25}], curviness: 1.5 }, repeat: -1, yoyo: true, ease: "power1.inOut" });
+gsap.to("#user3", { duration: 4.2, motionPath: { path: [{x: 0, y: 0}, {x: -15, y: -25}, {x: 25, y: 15}], curviness: 1.5 }, repeat: -1, yoyo: true, ease: "power1.inOut" });
+gsap.to("#user4", { duration: 3.8, motionPath: { path: [{x: 0, y: 0}, {x: 25, y: 15}, {x: -20, y: -20}], curviness: 1.5 }, repeat: -1, yoyo: true, ease: "power1.inOut" });
+
+// Movimiento del servidor
+gsap.to("#server", { duration: 5, motionPath: { path: [{x: 0, y: 0}, {x: -10, y: 10}, {x: 10, y: -10}], curviness: 1.5 }, repeat: -1, yoyo: true, ease: "power1.inOut" });
+
+// Redirección de botones
+document.querySelectorAll(".node").forEach(node => {
+node.addEventListener("click", () => {
+    let url = node.getAttribute("data-url"); 
+    if (url) {
+        window.location.href = url;
+    } else {
+        alert("No se encontró la URL para " + node.innerText);
+    }
+});
+});
+
+
+// Conectar los nodos con líneas
+function updateLines() {
+    const server = document.getElementById("server").getBoundingClientRect();
+    const users = [
+        document.getElementById("user1").getBoundingClientRect(),
+        document.getElementById("user2").getBoundingClientRect(),
+        document.getElementById("user3").getBoundingClientRect(),
+        document.getElementById("user4").getBoundingClientRect()
+    ];
+
+    users.forEach((user, index) => {
+        const line = document.getElementById("line" + (index + 1));
+        line.setAttribute("x1", server.left + server.width / 2 - svg.left);
+        line.setAttribute("y1", server.top + server.height / 2 - svg.top);
+        line.setAttribute("x2", user.left + user.width / 2 - svg.left);
+        line.setAttribute("y2", user.top + user.height / 2 - svg.top);
+    });
+}
+
+// Actualizar líneas cada 100ms para seguir los movimientos
+setInterval(updateLines, 100);
+
+window.addEventListener("resize", updateLines);
+</SCript>
+
+</body>
+</html>

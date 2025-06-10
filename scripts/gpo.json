@@ -1,0 +1,20 @@
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('ad_gpos.json')
+        .then(response => response.json())
+        .then(data => {
+            let gpoList = document.getElementById("gpoList");
+            data.forEach(gpo => {
+                let creationDate = new Date(parseInt(gpo.CreationTime.match(/\d+/)[0]));
+                let modificationDate = new Date(parseInt(gpo.ModificationTime.match(/\d+/)[0]));
+
+                let card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `<h3>${gpo.DisplayName}</h3>
+                                  <p><strong>Estado:</strong> ${gpo.GpoStatus}</p>
+                                  <p><strong>Creación:</strong> ${creationDate.toLocaleString()}</p>
+                                  <p><strong>Modificación:</strong> ${modificationDate.toLocaleString()}</p>`;
+                gpoList.appendChild(card);
+            });
+        })
+        .catch(error => console.error("Error al cargar las GPOs:", error));
+});

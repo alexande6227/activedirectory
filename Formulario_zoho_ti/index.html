@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Referrer-Policy" content="no-referrer">
+  <title>Formulario tickets</title>
+  <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, rgba(10, 216, 226, 1), rgba(12, 130, 185, 1), #523a7a);
+  background-size: 600% 600%;
+  animation: gradientAnimation 10s ease infinite;
+  padding: 30px;
+  margin: 0;
+  height: 100vh;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    #form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding: 20px 30px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #history {
+      background: linear-gradient(90deg, rgba(12, 130, 185, 1) 0%, rgba(10, 216, 226, 1) 61%);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 15px;
+    }
+    .history-item {
+      margin-bottom: 10px;
+    }
+    .history-item input, .history-item select, .history-item textarea {
+      width: 97%;
+      border: 1px solid #0ad8e2;
+      border-radius: 5px;
+      padding: 8px;
+      margin-top: 4px;
+    }
+    #chatbox {
+      background: #eef2f7;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .chat-step {
+      margin-bottom: 20px;
+    }
+    .chat-step label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .chat-step label.required::after {
+      content: " *";
+      color: red;
+    }
+    .chat-step input::placeholder,
+    .chat-step textarea::placeholder {
+      color: #aaa;
+      font-style: italic;
+    }
+    .chat-step input, .chat-step select, .chat-step textarea {
+      width: 97%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    #error-message {
+      background: #ffe0e0;
+      border: 1px solid #ff6b6b;
+      color: #b00020;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: none;
+    }
+    button {
+      padding: 10px 25px;
+      font-size: 16px;
+      background: #0c82b9;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0ad8e2;
+    }
+  </style>
+</head>
+<body>
+  <div id="form-container">
+    <h2>FORMULARIO TICKETS</h2>
+    <div id="history">
+      <h4>Resumen de respuestas</h4>
+      <div id="responseHistory"></div>
+    </div>
+    <div id="chatbox">
+      <form id="chatForm" onsubmit="return false">
+        <div id="error-message"></div>
+        <div class="chat-step">
+          <label id="chatLabel" class="required"></label>
+          <div id="chatInputContainer">
+            <input type="text" id="chatInput" required />
+          </div>
+        </div>
+        <button type="button" onclick="nextStep()">Siguiente</button>
+      </form>
+      <form id="zohoForm" method="POST">
+        <input type="hidden" name="xnQsjsdp" value="edbsn478cb6b0b00fb59b220b6b131cf19c4b">
+        <input type="hidden" name="xmIwtLD" value="edbsnfc793d7b8a0ff07c67abd26b805c932dc074344b1472920678c8e7a85d79edae">
+        <input type="hidden" name="xJdfEaS" value="">
+        <input type="hidden" name="actionType" value="Q2FzZXM=">
+        <input type="hidden" name="returnURL" value="https://active-directory.adacsc.co/formulario_zoho/formsuccess.html">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const fields = [
+      { name: 'Contact Name', label: '¿Cuál es tu nombre completo?', type: 'text', placeholder: 'Ej: Juan Pérez' },
+      { name: 'Phone', label: '¿Cuál es tu número de teléfono?', type: 'tel', placeholder: 'Ej: 3123456789' },
+      { name: 'Email', label: '¿Cuál es tu correo electrónico?', type: 'email', placeholder: 'Ej: correo@ejemplo.com' },
+      { name: 'Priority', label: '¿Qué prioridad tiene tu solicitud?', type: 'select', options: ['Alta', 'Media', 'Baja'] },
+      { name: 'Tipo de Servicio', label: '¿Qué tipo de servicio necesitas?', type: 'select', options: ['Soporte Usuario Final', 'Problemas equipo', 'Solcitud de VPN', 'Solicitud de maquina virtual', 'Otro problema', 'servicio caido', 'Logistica Interna'] },
+      { name: 'Subject', label: '¿Cuál es el asunto?', type: 'text', placeholder: 'Ej: Problema con impresora' },
+      { name: 'Description', label: 'Describe brevemente el caso.', type: 'textarea', placeholder: 'Ej: La impresora no responde desde esta mañana...' }
+    ];
+
+    let current = 0;
+    const chatLabel = document.getElementById("chatLabel");
+    const chatInputContainer = document.getElementById("chatInputContainer");
+    const zohoForm = document.getElementById("zohoForm");
+    const history = document.getElementById("responseHistory");
+    const errorMessage = document.getElementById("error-message");
+    const formData = {};
+
+    function renderFieldInput(field) {
+      chatInputContainer.innerHTML = '';
+      errorMessage.style.display = 'none';
+      if (field.type === 'select') {
+        const select = document.createElement('select');
+        select.id = 'chatInput';
+        select.required = true;
+        field.options.forEach(opt => {
+          const option = document.createElement('option');
+          option.value = opt;
+          option.textContent = opt;
+          select.appendChild(option);
+        });
+        chatInputContainer.appendChild(select);
+      } else if (field.type === 'textarea') {
+        const textarea = document.createElement('textarea');
+        textarea.id = 'chatInput';
+        textarea.required = true;
+        textarea.placeholder = field.placeholder || '';
+        chatInputContainer.appendChild(textarea);
+      } else {
+        const input = document.createElement('input');
+        input.id = 'chatInput';
+        input.type = field.type;
+        input.required = true;
+        input.placeholder = field.placeholder || '';
+        if (field.type === 'tel') {
+          input.pattern = '[0-9]+';
+          input.title = 'Solo se permiten números';
+        }
+        chatInputContainer.appendChild(input);
+      }
+    }
+
+    function renderHistory() {
+      history.innerHTML = '';
+      for (let i = 0; i < current; i++) {
+        const field = fields[i];
+        history.innerHTML += `<div class='history-item'><label>${field.label}</label><input onchange="updateField('${field.name}', this.value)" value="${formData[field.name] || ''}" /></div>`;
+      }
+    }
+
+    function updateField(name, value) {
+      formData[name] = value;
+      const input = zohoForm.querySelector(`[name='${name}']`);
+      if (input) {
+        input.value = value;
+      } else {
+        const hidden = document.createElement('input');
+        hidden.type = 'hidden';
+        hidden.name = name;
+        hidden.value = value;
+        zohoForm.appendChild(hidden);
+      }
+    }
+
+    function showError(msg) {
+      errorMessage.textContent = msg;
+      errorMessage.style.display = 'block';
+    }
+
+    function nextStep() {
+      const field = fields[current];
+      const chatInput = document.getElementById("chatInput");
+      const value = chatInput.value.trim();
+      if (!value) {
+        showError("⚠️ Debes completar este campo antes de continuar.");
+        return;
+      }
+
+      if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+        showError("📧 El correo electrónico ingresado no es válido.");
+        return;
+      }
+
+      if (field.type === 'tel' && !/^\d+$/.test(value)) {
+        showError("📞 Solo se permiten números en el campo de teléfono.");
+        return;
+      }
+
+      updateField(field.name, value);
+      formData[field.name] = value;
+      current++;
+
+      if (current < fields.length) {
+        const next = fields[current];
+        chatLabel.innerText = next.label;
+        renderFieldInput(next);
+      } else {
+        const url = 'https://desk.zoho.com/support/WebToCase';
+        const formDataToSend = new FormData(zohoForm);
+
+        fetch(url, {
+          method: 'POST',
+          body: formDataToSend,
+          mode: 'no-cors'
+        }).finally(() => {
+          window.location.href = 'https://active-directory.adacsc.co/formulario_zoho/formsuccess.html';
+        });
+      }
+      renderHistory();
+    }
+
+    chatLabel.innerText = fields[current].label;
+    renderFieldInput(fields[current]);
+  </script>
+  <div style="position: fixed; top: 30px; left: 100px; z-index: 1000;">
+  </div>
+  <footer style="text-align: center; font-size: 14px; color: #ffffff; padding: 20px 0;">
+    © 2025 LaPoint. Todos los derechos reservados.
+  </footer>
+</body>
+</html>

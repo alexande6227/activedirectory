@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario Interactivo - Soporte</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #chat-container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .chat-message {
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .chat-input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #6c63ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #5548d4;
+    }
+  </style>
+</head>
+<body>
+
+<div id="chat-container">
+  <form id="chatForm" action="https://desk.zoho.com/support/WebToCase" method="POST" enctype="multipart/form-data">
+    <!-- Hidden Zoho required fields -->
+    <input type="hidden" name="xnQsjsdp" value="edbsn478cb6b0b00fb59b220b6b131cf19c4b" />
+    <input type="hidden" name="xmIwtLD" value="edbsna0eb8907ba06309e9f5d2e75edd6fcdcd68f904de97ef10238af671e1e4e1ea9" />
+    <input type="hidden" name="xJdfEaS" value="" />
+    <input type="hidden" name="actionType" value="Q2FzZXM=" />
+    <input type="hidden" name="returnURL" value="https://active-directory.adacsc.co/formulario_zoho/formsuccess.html" />
+    <input type="hidden" name="First Name" />
+    <input type="hidden" name="Contact Name" />
+    <input type="hidden" name="Phone" />
+    <input type="hidden" name="Email" />
+    <input type="hidden" name="Priority" />
+    <input type="hidden" name="Due Date" />
+    <input type="hidden" name="Subject" />
+    <input type="hidden" name="Description" />
+
+    <div class="chat-message" id="question"></div>
+    <input class="chat-input" type="text" id="inputField" required />
+    <button type="button" onclick="nextStep()">Siguiente</button>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('chatForm');
+  const question = document.getElementById('question');
+  const input = document.getElementById('inputField');
+
+  const steps = [
+    { name: "First Name", label: "¿Cuál es tu nombre?" },
+    { name: "Contact Name", label: "¿Cuál es tu apellido?" },
+    { name: "Phone", label: "¿Cuál es tu número de teléfono?" },
+    { name: "Email", label: "¿Cuál es tu correo electrónico?" },
+    { name: "Priority", label: "¿Qué prioridad tiene tu solicitud? (Alta, Media, Baja)" },
+    { name: "Due Date", label: "¿Cuál es la fecha de vencimiento? (MM/dd/yyyy)" },
+    { name: "Subject", label: "¿Cuál es el asunto del caso?" },
+    { name: "Description", label: "Describe brevemente el caso." }
+  ];
+
+  let currentStep = 0;
+
+  function nextStep() {
+    const step = steps[currentStep];
+    const value = input.value.trim();
+    if (!value) return alert("Por favor responde antes de continuar.");
+
+    form.elements[step.name].value = value;
+    input.value = '';
+    currentStep++;
+
+    if (currentStep < steps.length) {
+      question.innerText = steps[currentStep].label;
+    } else {
+      form.submit();
+    }
+  }
+
+  // Mostrar la primera pregunta al cargar
+  question.innerText = steps[currentStep].label;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,697 @@
+﻿[
+    {
+        "Nombre":  "DCADAMDE",
+        "SistemaOperativo":  "Windows Server 2019 Standard",
+        "IP":  "10.1.40.90"
+    },
+    {
+        "Nombre":  "PL_SOPORTETI",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.33"
+    },
+    {
+        "Nombre":  "PA_DDIAZ",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.242"
+    },
+    {
+        "Nombre":  "PL_FNARANJO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.0.163"
+    },
+    {
+        "Nombre":  "PB_LGUTIERREZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.96"
+    },
+    {
+        "Nombre":  "PL_CMORALES",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "10.1.51.235"
+    },
+    {
+        "Nombre":  "PA_SOLHERNANDEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.116"
+    },
+    {
+        "Nombre":  "PL-JGONZALEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.78"
+    },
+    {
+        "Nombre":  "PA-CESCOBAR",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.69"
+    },
+    {
+        "Nombre":  "PA_VCADAVIDD",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.141"
+    },
+    {
+        "Nombre":  "PB_SGALVIS",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.139"
+    },
+    {
+        "Nombre":  "PB_FMORENO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.82"
+    },
+    {
+        "Nombre":  "PA_MDIEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.166"
+    },
+    {
+        "Nombre":  "PA_AACOSTA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.99"
+    },
+    {
+        "Nombre":  "PL-COORDINADOR",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "10.1.51.237"
+    },
+    {
+        "Nombre":  "PA_BHERRERA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA-BPINILLA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.94"
+    },
+    {
+        "Nombre":  "PA_CJARAMILLO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.153"
+    },
+    {
+        "Nombre":  "PA_VMARTINEZ",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.138"
+    },
+    {
+        "Nombre":  "PL_JECHEVERRI",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA-SECRETARIA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.31"
+    },
+    {
+        "Nombre":  "PA_MMUNOZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA_HPADILLA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA_AGOMEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "10.1.51.234"
+    },
+    {
+        "Nombre":  "PA-MGONZALEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.212"
+    },
+    {
+        "Nombre":  "PB_ANARVAEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.116"
+    },
+    {
+        "Nombre":  "PA_IACOSTA",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.50"
+    },
+    {
+        "Nombre":  "PB_CCASTRO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA_VRESTREPO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.106"
+    },
+    {
+        "Nombre":  "PA_DANGULO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.80"
+    },
+    {
+        "Nombre":  "PA_DESPLIGUES",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.121"
+    },
+    {
+        "Nombre":  "PB_DPEDRAZA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.55"
+    },
+    {
+        "Nombre":  "PB_JCIFUENTES",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.103"
+    },
+    {
+        "Nombre":  "PA-EMULCUE",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.180"
+    },
+    {
+        "Nombre":  "PA_LPEREZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "10.212.134.102"
+    },
+    {
+        "Nombre":  "PA-BOTERO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.97"
+    },
+    {
+        "Nombre":  "PB_FCASTELLANOS",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.69"
+    },
+    {
+        "Nombre":  "PA-JPATINO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.89"
+    },
+    {
+        "Nombre":  "PA_SGUERRA_",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.113"
+    },
+    {
+        "Nombre":  "PA-PAYALA",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.64"
+    },
+    {
+        "Nombre":  "PB_LSERRANO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.69"
+    },
+    {
+        "Nombre":  "PL_MOROZCO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA_NCORDOBA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.62"
+    },
+    {
+        "Nombre":  "PB_LCORREDOR",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.68"
+    },
+    {
+        "Nombre":  "PB_SCORREDOR",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.43"
+    },
+    {
+        "Nombre":  "PB_LGIL",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.90"
+    },
+    {
+        "Nombre":  "PA-EACARVAJAL",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.72"
+    },
+    {
+        "Nombre":  "PB_LROJAS",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.9"
+    },
+    {
+        "Nombre":  "AD_1",
+        "SistemaOperativo":  "Windows Server 2019 Standard",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA_LARDILA",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.227"
+    },
+    {
+        "Nombre":  "PA_NBUILES",
+        "SistemaOperativo":  "Windows 10 Enterprise",
+        "IP":  "192.168.177.126"
+    },
+    {
+        "Nombre":  "PB_DMUETE",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.7"
+    },
+    {
+        "Nombre":  "PA-YMAMIAN",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "10.1.61.150"
+    },
+    {
+        "Nombre":  "PA_SECRETARIA",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.79"
+    },
+    {
+        "Nombre":  "PB_EBULLA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.6"
+    },
+    {
+        "Nombre":  "PA-PMARTINEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.31"
+    },
+    {
+        "Nombre":  "PL-AZULUAGA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.3"
+    },
+    {
+        "Nombre":  "PB_LSANDOVAL",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.60"
+    },
+    {
+        "Nombre":  "PB-MCABALLERO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.113"
+    },
+    {
+        "Nombre":  "PA_JARCILA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.38"
+    },
+    {
+        "Nombre":  "PA_AG",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.15"
+    },
+    {
+        "Nombre":  "PB_OQUINTERO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.74"
+    },
+    {
+        "Nombre":  "PB_JLAGOS",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.6"
+    },
+    {
+        "Nombre":  "PB-DGARCIA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.9"
+    },
+    {
+        "Nombre":  "PA-KRESTREPO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.118"
+    },
+    {
+        "Nombre":  "PL-ARUIZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.238"
+    },
+    {
+        "Nombre":  "PB-DRODRIGUEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.43"
+    },
+    {
+        "Nombre":  "PB-JLARROTA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.42"
+    },
+    {
+        "Nombre":  "PB-EMARTINEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.17"
+    },
+    {
+        "Nombre":  "PL-EDATACENTER",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "10.1.61.48"
+    },
+    {
+        "Nombre":  "DCADARIO",
+        "SistemaOperativo":  "Windows Server 2019 Standard",
+        "IP":  "10.1.40.91"
+    },
+    {
+        "Nombre":  "PA-JTORRES",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.63"
+    },
+    {
+        "Nombre":  "PB-YCALDERON",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.10.43"
+    },
+    {
+        "Nombre":  "PA-DLOPEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.129"
+    },
+    {
+        "Nombre":  "PB-CENGATIVA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.165"
+    },
+    {
+        "Nombre":  "PA-NMUNOZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.60"
+    },
+    {
+        "Nombre":  "PA-MVERGARA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.91"
+    },
+    {
+        "Nombre":  "PB-CALVARADO",
+        "SistemaOperativo":  null,
+        "IP":  null
+    },
+    {
+        "Nombre":  "PB_CALVARADO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.35"
+    },
+    {
+        "Nombre":  "PA-MTABAREZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.114"
+    },
+    {
+        "Nombre":  "PB-NSALGADO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.97"
+    },
+    {
+        "Nombre":  "PA-HVILLARRAGA",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.20"
+    },
+    {
+        "Nombre":  "PA-MMURIEL",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.70"
+    },
+    {
+        "Nombre":  "PA-LGONZALEZ",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.90"
+    },
+    {
+        "Nombre":  "PA-JRIVERA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.120"
+    },
+    {
+        "Nombre":  "PB-CBARRGANR",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.71"
+    },
+    {
+        "Nombre":  "PA-VBALDOVI",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.177.9"
+    },
+    {
+        "Nombre":  "PA-JCANAS",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.70"
+    },
+    {
+        "Nombre":  "PB-DVALERO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.72"
+    },
+    {
+        "Nombre":  "PA-DCALVACHE",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.57"
+    },
+    {
+        "Nombre":  "PB-CDAVLA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.95"
+    },
+    {
+        "Nombre":  "PB-HCORTES",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.10.79"
+    },
+    {
+        "Nombre":  "PA-FDUQUE",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.97"
+    },
+    {
+        "Nombre":  "PB-ASANTACRUZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.71"
+    },
+    {
+        "Nombre":  "PB-OABAUNZA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.83"
+    },
+    {
+        "Nombre":  "PA-CORTIZ",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.11"
+    },
+    {
+        "Nombre":  "PA-MPUENTES",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.215"
+    },
+    {
+        "Nombre":  "PA-MGIL",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.98"
+    },
+    {
+        "Nombre":  "PB-LPRADO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.79"
+    },
+    {
+        "Nombre":  "PA-FQUINONES",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.120"
+    },
+    {
+        "Nombre":  "PA-LROMAN",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.193"
+    },
+    {
+        "Nombre":  "PA-DCARVAJAL",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.221"
+    },
+    {
+        "Nombre":  "PA-VPALACIO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.89"
+    },
+    {
+        "Nombre":  "PA-MMEDINA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.15"
+    },
+    {
+        "Nombre":  "PA-ACORTIZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.146"
+    },
+    {
+        "Nombre":  "PA-VBALDOVINO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.137"
+    },
+    {
+        "Nombre":  "PA-MGIRALDO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.52"
+    },
+    {
+        "Nombre":  "PB-JYEPES",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PB-MCHAVEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.22"
+    },
+    {
+        "Nombre":  "PA-JAGUDELO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.45"
+    },
+    {
+        "Nombre":  "PB-YORTEGA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.56"
+    },
+    {
+        "Nombre":  "PA-YOSORIO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.129"
+    },
+    {
+        "Nombre":  "PB-YHERNANDEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.228"
+    },
+    {
+        "Nombre":  "PA-YPIZARRO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.53"
+    },
+    {
+        "Nombre":  "PB-JVELANDIA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.113"
+    },
+    {
+        "Nombre":  "PL-SOPORTE",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "10.1.61.116"
+    },
+    {
+        "Nombre":  "PA-JEPATINO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.147"
+    },
+    {
+        "Nombre":  "PA-SVHERNANDEZ",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.144"
+    },
+    {
+        "Nombre":  "PA-JPUERTA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.84"
+    },
+    {
+        "Nombre":  "PB-DSORIANO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.20"
+    },
+    {
+        "Nombre":  "PB-FARCOS",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.49"
+    },
+    {
+        "Nombre":  "PA-MGALLO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.15"
+    },
+    {
+        "Nombre":  "PB-JDUARTE",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.100"
+    },
+    {
+        "Nombre":  "PA-JMEJIA",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.200"
+    },
+    {
+        "Nombre":  "PA-DANGULO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.173"
+    },
+    {
+        "Nombre":  "PA-CARISTIZABAL",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA-MOROZCO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.68"
+    },
+    {
+        "Nombre":  "PA-YSMAMIAN",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.219"
+    },
+    {
+        "Nombre":  "PA-JDAGUDELO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.221"
+    },
+    {
+        "Nombre":  "PB-JRANGEL",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.203"
+    },
+    {
+        "Nombre":  "PA-LLMARTINEZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.65"
+    },
+    {
+        "Nombre":  "PA-MCOLORADO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.57"
+    },
+    {
+        "Nombre":  "PB-CMORENO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.146"
+    },
+    {
+        "Nombre":  "PB-CORTIZ",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.177.54"
+    },
+    {
+        "Nombre":  "PA-KSARMIENTO",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  null
+    },
+    {
+        "Nombre":  "PA-JIBARGUEN",
+        "SistemaOperativo":  "Windows 11 Pro",
+        "IP":  "192.168.175.44"
+    },
+    {
+        "Nombre":  "PA-JZORRO",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.223"
+    },
+    {
+        "Nombre":  "PA-MOROZCOC",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.85"
+    },
+    {
+        "Nombre":  "PA-NALVAREZ",
+        "SistemaOperativo":  "Windows 10 Pro",
+        "IP":  "192.168.175.68"
+    }
+]

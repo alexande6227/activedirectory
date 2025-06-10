@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Interactivo Mejorado</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    #chat-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    .bubble {
+      background: #e6ecf3;
+      padding: 12px 16px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    .bubble:hover {
+      background: #d9e3ef;
+    }
+    .bubble input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-size: 15px;
+    }
+    .chat-question {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chat-input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #6c63ff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #5548d4;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container">
+    <form id="chatForm" action="https://desk.zoho.com/support/WebToCase" method="POST">
+      <input type="hidden" name="xnQsjsdp" value="edbsn478cb6b0b00fb59b220b6b131cf19c4b" />
+      <input type="hidden" name="xmIwtLD" value="edbsna0eb8907ba06309e9f5d2e75edd6fcdcd68f904de97ef10238af671e1e4e1ea9" />
+      <input type="hidden" name="xJdfEaS" value="" />
+      <input type="hidden" name="actionType" value="Q2FzZXM=" />
+      <input type="hidden" name="returnURL" value="https://active-directory.adacsc.co/formulario_zoho/formsuccess.html" />
+
+      <div class="chat-question"><i data-lucide="user"></i><span id="question"></span></div>
+      <input id="inputField" class="chat-input" type="text" required />
+
+      <div id="history"></div>
+      <button type="button" onclick="nextStep()">Siguiente</button>
+    </form>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const form = document.getElementById("chatForm");
+    const question = document.getElementById("question");
+    const input = document.getElementById("inputField");
+    const history = document.getElementById("history");
+
+    const steps = [
+      { name: "First Name", label: "¿Cuál es tu nombre?" },
+      { name: "Contact Name", label: "¿Cuál es tu apellido?" },
+      { name: "Phone", label: "¿Cuál es tu número de teléfono?" },
+      { name: "Email", label: "¿Cuál es tu correo electrónico?" },
+      { name: "Priority", label: "¿Prioridad del caso? (Alta, Media, Baja)" },
+      { name: "Due Date", label: "¿Fecha y hora de vencimiento?", type: "datetime" },
+      { name: "Subject", label: "¿Cuál es el asunto?" },
+      { name: "Description", label: "Describe brevemente el caso." },
+    ];
+
+    let currentStep = 0;
+    const answers = {};
+
+    function renderHistory() {
+      history.innerHTML = "";
+      Object.keys(answers).forEach(key => {
+        const step = steps.find(s => s.name === key);
+        const bubble = document.createElement("div");
+        bubble.className = "bubble";
+        bubble.innerHTML = `<div><strong>${step.label}</strong><br/><input value="${answers[key]}" onchange="editAnswer('${key}', this.value)"/></div>`;
+        history.appendChild(bubble);
+      });
+    }
+
+    function editAnswer(field, value) {
+      answers[field] = value;
+      form[field].value = value;
+    }
+
+    function nextStep() {
+      const step = steps[currentStep];
+      const value = input.value.trim();
+      if (!value) return alert("Por favor responde antes de continuar.");
+
+      answers[step.name] = value;
+      const hidden = document.createElement("input");
+      hidden.type = "hidden";
+      hidden.name = step.name;
+      hidden.value = value;
+      form.appendChild(hidden);
+
+      renderHistory();
+      input.value = "";
+      currentStep++;
+
+      if (currentStep < steps.length) {
+        const next = steps[currentStep];
+        question.innerText = next.label;
+        if (next.type === "datetime") {
+          flatpickr("#inputField", { enableTime: true, dateFormat: "Y-m-d H:i" });
+        }
+      } else {
+        form.submit();
+      }
+    }
+
+    // Inicializar
+    question.innerText = steps[currentStep].label;
+  </script>
+</body>
+</html>

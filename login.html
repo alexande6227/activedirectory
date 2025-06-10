@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión fallidos (Eventos Kerberos)</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: rgb(65, 148, 196);
+            padding: 15px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: left;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .card p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+        .download-button,
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .download-button {
+            background: #4CAF50;
+            color: white;
+        }
+        .back-button {
+            background: #ffcc00;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inicio de sesión fallidos (Eventos Kerberos)</h1>
+    <button class="download-button" onclick="downloadCSV()">Descargar CSV</button>
+    <button class="back-button" onclick="window.location.href='index.html'">Volver</button>
+    
+    <div class="container" id="eventos"></div>
+
+    <script>
+        // Variable global para almacenar los datos JSON
+        let eventosData = [];
+
+        // Cargar el archivo JSON al cargar la página
+        // Ajusta la ruta si tu JSON no está en la raíz
+        fetch('/host/failed_login.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                eventosData = data; // Guardamos en la variable global
+                mostrarEventos(data);
+            })
+            .catch(error => {
+                console.error("Error al cargar failed_login.json:", error);
+            });
+
+        // Función para mostrar los datos en tarjetas
+        function mostrarEventos(eventos) {
+            const contenedor = document.getElementById('eventos');
+            contenedor.innerHTML = ''; // Limpiar contenido anterior
+
+            // Si eventos NO es un array, lo convertimos en uno
+            // (Por si viene un solo objeto en lugar de [ {} ])
+            if (!Array.isArray(eventos)) {
+                eventos = [eventos];
+            }
+
+            eventos.forEach(evento => {
+                // Extraer campos básicos
+                const servidor = evento.LoggingServer || 'Desconocido';
+                const usuario = evento.UserName || evento.DisplayName || 'No especificado';
+                const fechaEvento = convertirFecha(evento.TimeStamp);
+
+                // Crear la tarjeta
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                // Encabezado (nombre del servidor)
+                const h3 = document.createElement('h3');
+                h3.textContent = `Equipo: ${servidor}`;
+
+                // Parrafo usuario
+                const pUsuario = document.createElement('p');
+                pUsuario.textContent = `Usuario: ${usuario}`;
+
+                // Parrafo fecha/hora
+                const pFecha = document.createElement('p');
+                pFecha.textContent = `Hora del evento: ${fechaEvento}`;
+
+                // Agregar elementos a la tarjeta
+                card.appendChild(h3);
+                card.appendChild(pUsuario);
+                card.appendChild(pFecha);
+
+                // Agregar tarjeta al contenedor
+                contenedor.appendChild(card);
+            });
+        }
+
+        // Función para convertir la fecha/hora del evento en un formato legible
+        function convertirFecha(fechaRaw) {
+            try {
+                // Ej: "/Date(1743600754961)/" => extraemos el número
+                const match = /Date\((\d+)\)/.exec(fechaRaw);
+                if (match) {
+                    const mili = parseInt(match[1]);
+                    const fecha = new Date(mili);
+                    return fecha.toLocaleString();
+                }
+                // Si no coincide, tratamos parsear como ISO
+                const fecha = new Date(fechaRaw);
+                if (!isNaN(fecha.getTime())) {
+                    return fecha.toLocaleString();
+                }
+            } catch (e) {
+                // En caso de error, devolvemos la cadena original
+            }
+            // Si todo falla, devuelve la entrada tal cual
+            return fechaRaw;
+        }
+
+        // Función para descargar datos como CSV
+        function downloadCSV() {
+            if (!eventosData.length) {
+                alert("No hay datos para exportar");
+                return;
+            }
+
+            // Encabezados CSV
+            let csvContent = "Equipo,Usuario,FechaEvento\n";
+
+            eventosData.forEach(evento => {
+                const servidor = evento.LoggingServer || '';
+                const usuario = evento.UserName || evento.DisplayName || '';
+                const fechaEvento = convertirFecha(evento.TimeStamp);
+                
+                // Escapar comas y dobles comillas si es necesario
+                const fila = `"${servidor}","${usuario}","${fechaEvento}"\n`;
+                csvContent += fila;
+            });
+
+            // Crear un blob con el contenido CSV
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+
+            // Crear un enlace temporal para descargar
+            const link = document.createElement('a');
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'failed_login.csv');
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+
+            link.click(); // Forzar la descarga
+            document.body.removeChild(link); // Eliminar el enlace temporal
+        }
+    </script>
+</body>
+</html>
+

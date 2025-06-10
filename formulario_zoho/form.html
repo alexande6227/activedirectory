@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <META HTTP-EQUIV='content-type' CONTENT='text/html; charset=UTF-8'>
+    <link rel="stylesheet" href="style.css">
+    <script src="sript.js"></script>
+    <script src='https://d17nz991552y2g.cloudfront.net/app/js/jqueryandencoder.ef05974972bf3bca1b87.js'></script>
+    <script>function trimBoth(str) { return jQuery.trim(str); } function setAllDependancyFieldsMapping() { var mapDependancyLabels = getMapDependenySelectValues(jQuery("[id='property(module)']").val(), "JSON_MAP_DEP_LABELS"); if (mapDependancyLabels) { for (var i = 0; i < mapDependancyLabels.length; i++) { var label = mapDependancyLabels[i]; var obj = document.forms['zsWebToCase_573651000066150388'][label]; if (obj) { setDependent(obj, true); } } } } function getMapDependenySelectValues(module, key) { var dependencyObj = jQuery.parseJSON(jQuery("[id='dependent_field_values_" + module + "']").val()); if (dependencyObj == undefined) { return dependencyObj; } return dependencyObj[key]; } function setDependent(obj, isload) { var name = obj.id || (obj[0] && obj[0].id) || ""; var module = jQuery("[id='property(module)']").val(); var val = ""; var myObject = getMapDependenySelectValues(module, "JSON_VALUES"); if (myObject != undefined) { val = myObject[name]; } var mySelObject = getMapDependenySelectValues(module, "JSON_SELECT_VALUES"); if (val != null && val != "" && val != "null" && mySelObject) { var fields = val; for (var i in fields) { if (fields.hasOwnProperty(i)) { var isDependent = false; var label = i; var values = fields[i]; if (label.indexOf(")") > -1) { label = label.replace(/\)/g, '_____'); } if (label.indexOf("(") > -1) { label = label.replace(/\(/g, '____'); } if (label.indexOf(".") > -1) { label = label.replace(/\./g, '___'); } var depObj = document.forms['zsWebToCase_573651000066150388'][label]; if (depObj && depObj.options) { var mapValues = ""; var selected_val = depObj.value; var depLen = depObj.options.length - 1; for (var n = depLen; n >= 0; n--) { if (depObj.options[n].selected) { if (mapValues == "") { mapValues = depObj.options[n].value; } else { mapValues = mapValues + ";;;" + depObj.options[n].value; } } } depObj.value = ""; var selectValues = mySelObject[label]; for (var k in values) { var rat = k; if (rat == "-None-") { rat = ""; } var parentValues = mySelObject[name]; if (rat == trimBoth(obj.value)) { isDependent = true; depObj.length = 0; var depvalues = values[k]; var depLen = depvalues.length - 1; for (var j = 0; j <= depLen; j++) { var optionElement = document.createElement("OPTION"); var displayValue = depvalues[j]; var actualValue = displayValue; if (actualValue == "-None-") { optionElement.value = ""; displayValue = "-None-"; } else { optionElement.value = actualValue; } optionElement.text = displayValue; if (mapValues != undefined) { var mapValue = mapValues.split(";;;"); var len = mapValue.length; for (var p = 0; p < len; p++) { if (actualValue == mapValue[p]) { optionElement.selected = true; } } } depObj.options.add(optionElement); } } } if (!isDependent) { depObj.length = 0; var len = selectValues.length; for (var j = 0; j < len; j++) { var actualValue = selectValues[j]; var optionElement = document.createElement("OPTION"); if (actualValue == "-None-") { optionElement.value = ""; } else { optionElement.value = selectValues[j]; } optionElement.text = selectValues[j]; depObj.options.add(optionElement); } depObj.value = selected_val; } if (!isload) { setDependent(depObj, false); } var jdepObj = jQuery(depObj); if (jdepObj.hasClass('select2-offscreen')) { jdepObj.select2("val", jdepObj.val()); } } } } } } function setSelectAll(id) { var parentElement = document.getElementById(id); var hiddenInput = parentElement.querySelector('#hiddenoptions'); var selectAllElement = parentElement.querySelector('#selectall' + id); var selectedValues = []; var checkboxes = parentElement.querySelectorAll('.wb_multi_pick_input'); checkboxes.forEach(function (cb) { cb.checked = selectAllElement.checked; if (cb.checked && cb.value) { selectedValues.push(cb.value); } }); hiddenInput.value = selectedValues.join(','); } function setMultiSelectOption(id, obj) { var parentElement = document.getElementById(id); var hiddenInput = parentElement.querySelector('#hiddenoptions'); var selectAllElement = parentElement.querySelector('#selectall' + id); var selectedStr = hiddenInput.value; var selectedValues = selectedStr ? selectedStr.split(',') : []; if (obj.checked && obj.value) { selectedValues.push(obj.value); } else if (!obj.checked && obj.value) { selectedValues.splice(selectedValues.indexOf(obj.value), 1); selectAllElement.checked = false; } else { selectAllElement.checked = false; } hiddenInput.value = selectedValues.join(','); } var zctt = function () { var tt, mw = 400, top = 10, left = 0, doctt = document; var ieb = doctt.all ? true : false; return { showtt: function (cont, wid) { if (tt == null) { tt = doctt.createElement('div'); tt.setAttribute('id', 'tooltip-zc'); doctt.body.appendChild(tt); doctt.onmousemove = this.setpos; doctt.onclick = this.hidett; } tt.style.display = 'block'; tt.innerHTML = cont; tt.style.width = wid ? wid + 'px' : 'auto'; if (!wid && ieb) { tt.style.width = tt.offsetWidth; } if (tt.offsetWidth > mw) { tt.style.width = mw + 'px' } h = parseInt(tt.offsetHeight) + top; w = parseInt(tt.offsetWidth) + left; }, hidett: function () { tt.style.display = 'none'; }, setpos: function (e) { var u = ieb ? event.clientY + doctt.body.scrollTop : e.pageY; var l = ieb ? event.clientX + doctt.body.scrollLeft : e.pageX; var cw = doctt.body.clientWidth; var ch = doctt.body.clientHeight; if (l < 0) { tt.style.left = left + 'px'; tt.style.right = ''; } else if ((l + w + left) > cw) { tt.style.left = ''; tt.style.right = ((cw - l) + left) + 'px'; } else { tt.style.right = ''; tt.style.left = (l + left) + 'px'; } if (u < 0) { tt.style.top = top + 'px'; tt.style.bottom = ''; } else if ((u + h + left) > ch) { tt.style.top = ''; tt.style.bottom = ((ch - u) + top) + 'px'; } else { tt.style.bottom = ''; tt.style.top = (u + top) + 'px'; } } }; }(); var zsWebFormMandatoryFields = new Array("Contact Name", "Email", "Subject"); var zsFieldsDisplayLabelArray = new Array("Apellidos", "Correo electrónico", "Asunto"); function zsValidateMandatoryFields() { var name = ''; var email = ''; var isError = 0; for (var index = 0; index < zsWebFormMandatoryFields.length; index++) { isError = 0; var fieldObject = document.forms['zsWebToCase_573651000066150388'][zsWebFormMandatoryFields[index]]; if (fieldObject) { if (((fieldObject.value).replace(/^\s+|\s+$/g, '')).length == 0) { alert(zsFieldsDisplayLabelArray[index] + ' no puede estar vacío '); fieldObject.focus(); isError = 1; return false; } else { if (fieldObject.name == 'Email') { if (!fieldObject.value.match(/^([\w_][\w\-_.+\'&]*)@(?=.{4,256}$)(([\w]+)([\-_]*[\w])*[\.])+[a-zA-Z]{2,22}$/)) { isError = 1; alert('Introduzca una ID de correo electrónico válida'); fieldObject.focus(); return false; } } } if (fieldObject.nodeName == 'SELECT') { if (fieldObject.options[fieldObject.selectedIndex].value == '-None-') { alert(zsFieldsDisplayLabelArray[index] + ' no puede ser nulo'); fieldObject.focus(); isError = 1; return false; } } if (fieldObject.type == 'checkbox') { if (fieldObject.checked == false) { alert('Acepte por favor ' + zsFieldsDisplayLabelArray[index]); fieldObject.focus(); isError = 1; return false; } } } } if (isError == 0) { document.getElementById('zsSubmitButton_573651000066150388').setAttribute('disabled', 'disabled'); } } document.addEventListener('readystatechange', function () { if (document.readyState === 'complete' && window.zsRegenerateCaptcha) { zsRegenerateCaptcha(); } setAllDependancyFieldsMapping(); document.getElementById('zsSubmitButton_573651000066150388').removeAttribute('disabled'); }); function zsResetWebForm(webFormId) { document.forms['zsWebToCase_' + webFormId].reset(); document.getElementById('zsSubmitButton_573651000066150388').removeAttribute('disabled'); setAllDependancyFieldsMapping(); } </script>
+</head>
+<div id='zohoSupportWebToCase' align='center'>
+    <form name='zsWebToCase_573651000066150388' id='zsWebToCase_573651000066150388'
+        action='https://desk.zoho.com/support/WebToCase' method='POST' onSubmit='return zsValidateMandatoryFields()'
+        enctype='multipart/form-data'> <input type='hidden' name='xnQsjsdp'
+            value='edbsn478cb6b0b00fb59b220b6b131cf19c4b' /> <input type='hidden' name='xmIwtLD'
+            value='edbsna0eb8907ba06309e9f5d2e75edd6fcdcd68f904de97ef10238af671e1e4e1ea9' /> <input type='hidden'
+            name='xJdfEaS' value='' /> <input type='hidden' name='actionType' value='Q2FzZXM=' /> <input type="hidden"
+            id="property(module)" value="Cases" /> <input type="hidden" id="dependent_field_values_Cases"
+            value="&#x7b;&quot;JSON_VALUES&quot;&#x3a;&#x7b;&#x7d;,&quot;JSON_SELECT_VALUES&quot;&#x3a;&#x7b;&#x7d;,&quot;JSON_MAP_DEP_LABELS&quot;&#x3a;&#x5b;&#x5d;&#x7d;" />
+        <input type='hidden' name='returnURL' value='https&#x3a;&#x2f;&#x2f;active-directory.adacsc.co&#x2f;formulario_zoho&#x2f;formsuccess.html' />
+        <table border='0' cellspacing='0' class='zsFormClass'>
+            <tr>
+                <td colspan='2' class='zsFontClass'><strong>Formulario web</strong></td>
+            </tr><br>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Nombre&nbsp;&nbsp;</td>
+                <td align='left' width='75%'><input type='text' maxlength='120' name='First Name' value='' /></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Apellidos&nbsp;&nbsp;</td>
+                <td align='left' width='75%'><input type='text' maxlength='120' name='Contact Name'
+                        class='manfieldbdr' /></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>N&uacute;mero de tel&eacute;fono&nbsp;&nbsp;
+                </td>
+                <td align='left' width='75%'><input type='text' maxlength='120' name='Phone' value='' /></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Correo electr&oacute;nico&nbsp;&nbsp;</td>
+                <td align='left' width='75%'><input type='text' maxlength='120' name='Email' value=''
+                        class='manfieldbdr' /></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Prioridad &nbsp;&nbsp;</td>
+                <td align='left' width='75%'><select name='Priority' value='' onchange="setDependent(this, false)"
+                        id='Priority'>
+                        <option value='Alta'>Alta</option>
+                        <option value='Media'>Media</option>
+                        <option value='Baja'>Baja</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Fecha de vencimiento &nbsp;&nbsp;</td>
+                <td align='left' width='75%'>
+                    <input type='text' placeholder='MM/dd/yyyy' maxlength='20' name='Due Date' value='' class='wb_cusInput' />
+<!--                      <option value='01'>01</option>
+                        <option value='02'>02</option>
+                        <option value='03'>03</option>
+                        <option value='04'>04</option>
+                        <option value='05'>05</option>
+                        <option value='06'>06</option>
+                        <option value='07'>07</option>
+                        <option value='08'>08</option>
+                        <option value='09'>09</option>
+                        <option value='10'>10</option>
+                        <option value='11'>11</option>
+                        <option value='12'>12</option> --> 
+                    </select>&nbsp;<select name='Due Dateminute' class='wb_selectDate'>
+                        <option value='00'>00</option>
+                        <option value='01'>01</option>
+                        <option value='02'>02</option>
+                        <option value='03'>03</option>
+                        <option value='04'>04</option>
+                        <option value='05'>05</option>
+                        <option value='06'>06</option>
+                        <option value='07'>07</option>
+                        <option value='08'>08</option>
+                        <option value='09'>09</option>
+                        <option value='10'>10</option>
+                        <option value='11'>11</option>
+                        <option value='12'>12</option>
+                    </select>&nbsp;<select name='Due Dateampm' class='wb_selectDate'>
+                        <option value='AM'>AM</option>
+                        <option value='PM'>PM</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Asunto&nbsp;&nbsp;</td>
+                <td align='left' width='75%'><input type='text' maxlength='255' name='Subject' value=''
+                        class='manfieldbdr' /></td>
+            </tr>
+            <tr>
+                <td nowrap class='zsFontClass ' width='25%' align='left'>Descripci&oacute;n &nbsp;&nbsp;</td>
+                <td align='left' width='75%'> <textarea name='Description' maxlength='3000' width='250'
+                        height='250'></textarea></td>
+            </tr>
+            <tr>
+                <td style='padding: 11px 5px 0px 5px;' colspan='2' align='center' width='25%'> <input type='submit'
+                        id="zsSubmitButton_573651000066150388" class='zsFontClass' value='Enviar'> &nbsp; &nbsp; <input
+                        type='button' class='zsFontClass' value='Restablecer'
+                        onclick="zsResetWebForm('573651000066150388')"> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</html>

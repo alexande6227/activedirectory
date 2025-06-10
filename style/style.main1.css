@@ -1,0 +1,113 @@
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    background-color: #1a1a2e;
+    background-size: cover;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+.card {
+    background: rgb(65, 148, 196);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    text-align: left;
+}
+.card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.card p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ffcc00;
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px; /* Más espacio dentro del contenedor */
+        border-radius: 10px;
+        width: 80%;
+        max-width: 900px; /* Reduce el ancho máximo */
+        text-align: center;
+        min-height: auto; /* Permite que crezca con el contenido */
+        overflow: visible;
+}
+
+.search-box {
+    width: 80%;
+    max-width: 400px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ou-item {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+    .user-list {
+display: none;
+background: rgba(255, 255, 255, 0.3);
+padding: 10px;
+margin-top: 5px;
+border-radius: 5px;
+overflow: visible; /* Permite crecimiento */
+}
+
+    .user-list::-webkit-scrollbar {
+        width: 8px;
+    }
+    .user-list::-webkit-scrollbar-thumb {
+        background-color: #ffcc00;
+        border-radius: 4px;
+    }
+    .user-list::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .user-list p {
+        margin: 5px 0;
+        padding: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    .back-button, .download-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #ffcc00;
+        border: none;
+        color: black;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
